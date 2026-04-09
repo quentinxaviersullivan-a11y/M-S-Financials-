@@ -26,8 +26,18 @@
 | 04 | [Financial Model](04-financial-model.md) | 5-year P&L, unit economics, funding plan |
 | 05 | [Cost Breakdown](05-cost-breakdown.md) | COGS, OpEx, CapEx, headcount |
 | 06 | [Go-To-Market](06-go-to-market.md) | Launch wedge, channels, sales motion |
+| 07 | [Execution Roadmap](07-execution-roadmap.md) | 52-week plan from pre-seed close to Seed raise |
 |    | [financial-model.csv](financial-model.csv) | Raw spreadsheet numbers |
 |    | [pitch.html](pitch.html) | Investor pitch page / landing page (SIGNAL aesthetic) |
+
+### Operational templates
+
+| File | Purpose |
+|------|---------|
+| [templates/pilot-agreement.md](templates/pilot-agreement.md) | MSA template for first 10 pilot buildings |
+| [templates/plumber-certification-agreement.md](templates/plumber-certification-agreement.md) | Contract for PipeWhisper Certified Plumber network |
+| [templates/insurance-carrier-pitch.md](templates/insurance-carrier-pitch.md) | Written pitch for top-25 commercial property carriers |
+| [templates/data-room-index.md](templates/data-room-index.md) | Diligence prep checklist for Seed / Series A |
 
 ---
 
