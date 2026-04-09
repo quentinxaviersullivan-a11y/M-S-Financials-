@@ -27,6 +27,7 @@
 | 05 | [Cost Breakdown](05-cost-breakdown.md) | COGS, OpEx, CapEx, headcount |
 | 06 | [Go-To-Market](06-go-to-market.md) | Launch wedge, channels, sales motion |
 |    | [financial-model.csv](financial-model.csv) | Raw spreadsheet numbers |
+|    | [pitch.html](pitch.html) | Investor pitch page / landing page (SIGNAL aesthetic) |
 
 ---
 
