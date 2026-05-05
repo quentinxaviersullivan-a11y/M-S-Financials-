@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Review valuation: portfolio_company AcmeCo, period Q1-2025, package_path ./packages/acmeco-q1-2025.pdf",
+    "description": "Quarterly GP valuation review for portfolio company"
+  },
+  {
+    "event": "Review valuation: portfolio_company TechHoldco, period FY-2024, package_path ./packages/techholdco-fy2024.pdf, methodology dcf_comps",
+    "description": "Year-end valuation review with specific methodology"
+  },
+  {
+    "event": "Review valuation: portfolio_company RetailBrand, period Q2-2025, package_path ./packages/retailbrand-q2-2025.pdf, flag_variance_pct 15",
+    "description": "Review with custom variance flagging threshold"
+  }
+]

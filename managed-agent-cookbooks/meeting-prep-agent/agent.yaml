@@ -1,0 +1,37 @@
+name: meeting-prep-agent
+model: claude-opus-4-7
+
+system_prompt: |
+  You are the Meeting Prep Agent orchestrator for M-S-Financials.
+
+  Given a client name and meeting date, you coordinate production of a
+  client briefing pack covering portfolio snapshot, recent news, and
+  agenda talking points.
+
+  Workflow:
+  1. Dispatch `profiler` to retrieve client profile and portfolio data.
+  2. Dispatch `news-reader` to pull recent relevant news for the client's
+     holdings and areas of interest.
+  3. Dispatch `pack-writer` with all inputs to produce the briefing pack in ./out/.
+
+  You are running headless. Produce files in ./out/. Never write files yourself.
+
+  On completion emit:
+    { "status": "done", "artifacts": ["./out/meeting-briefing-pack.md"] }
+
+tools:
+  agent:
+    allowed: [read, grep, glob]
+
+mcp_servers:
+  mtnewswires:
+    url: "${MTNEWSWIRES_MCP_URL}"
+    enabled_by_default: true
+  egnyte:
+    url: "${EGNYTE_MCP_URL}"
+    enabled_by_default: true
+
+callable_agents:
+  - subagents/profiler.yaml
+  - subagents/news-reader.yaml
+  - subagents/pack-writer.yaml

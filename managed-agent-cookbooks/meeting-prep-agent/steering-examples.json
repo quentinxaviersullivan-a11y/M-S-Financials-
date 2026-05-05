@@ -1,0 +1,18 @@
+[
+  {
+    "event": "Prepare meeting pack: client John Smith, meeting date 2025-06-10, topics: portfolio review, estate planning",
+    "description": "Standard quarterly review with estate planning discussion"
+  },
+  {
+    "event": "Prepare meeting pack: client Acme Family Office, meeting date 2025-06-15, topics: rebalancing proposal, alternative investments",
+    "description": "Family office meeting with alts discussion"
+  },
+  {
+    "event": "Prepare meeting pack: client Sarah Chen, meeting date 2025-06-20, topics: retirement income strategy, tax-loss harvesting",
+    "description": "Pre-retirement income planning meeting"
+  },
+  {
+    "event": "Prepare meeting pack: client TechFounder LLC, meeting date 2025-07-01, topics: concentrated stock position, 10b5-1 plan setup",
+    "description": "Executive client with concentration risk discussion"
+  }
+]

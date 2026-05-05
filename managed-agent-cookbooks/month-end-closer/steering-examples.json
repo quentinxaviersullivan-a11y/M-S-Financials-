@@ -1,0 +1,18 @@
+[
+  {
+    "event": "Run month-end close: entity MSFI-US, period 2025-04, close_date 2025-05-05",
+    "description": "Standard month-end close for US entity"
+  },
+  {
+    "event": "Run month-end close: entity MSFI-UK, period 2025-03, close_date 2025-04-05, currency GBP",
+    "description": "Month-end close for UK entity in local currency"
+  },
+  {
+    "event": "Run month-end close: entity MSFI-US, period 2025-Q1, close_date 2025-04-15, close_type quarterly",
+    "description": "Quarterly close with additional disclosures"
+  },
+  {
+    "event": "Run month-end close: entity MSFI-EU, period 2025-04, close_date 2025-05-07, variance_threshold_pct 5",
+    "description": "Close with custom variance flagging threshold"
+  }
+]

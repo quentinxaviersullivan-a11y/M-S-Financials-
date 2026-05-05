@@ -1,0 +1,18 @@
+[
+  {
+    "event": "Reconcile GL for entity MSFI-US, period 2025-04, account_range 1000-9999",
+    "description": "Full entity month-end reconciliation"
+  },
+  {
+    "event": "Reconcile GL for entity MSFI-UK, period 2025-03, account_range 2000-2999, materiality_threshold 5000",
+    "description": "AP subledger reconciliation with materiality filter"
+  },
+  {
+    "event": "Reconcile GL for entity MSFI-US, period 2025-04, account_range 1200-1299",
+    "description": "AR subledger reconciliation only"
+  },
+  {
+    "event": "Reconcile GL for entity MSFI-EU, period 2025-Q1, account_range 1000-9999, report_currency EUR",
+    "description": "Quarterly reconciliation with FX restatement"
+  }
+]

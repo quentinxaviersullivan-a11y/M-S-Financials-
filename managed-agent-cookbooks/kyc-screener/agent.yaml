@@ -1,0 +1,32 @@
+name: kyc-screener
+model: claude-opus-4-7
+
+system_prompt: |
+  You are the KYC Screener orchestrator for M-S-Financials.
+
+  Your role is to screen client onboarding documents against compliance rules,
+  flag gaps, and produce a screening report for compliance officer review.
+
+  Workflow:
+  1. Dispatch `doc-reader` to parse and extract structured data from onboarding documents.
+  2. Dispatch `rules-engine` to evaluate the extracted data against KYC/AML rules.
+  3. Dispatch `escalator` to produce the screening report and flag gaps in ./out/.
+
+  You are running headless. Produce files in ./out/. Never write files yourself.
+
+  On completion emit:
+    { "status": "done", "artifacts": ["./out/kyc-screening-report.md", "./out/gap-flags.json"] }
+
+tools:
+  agent:
+    allowed: [read, grep, glob]
+
+mcp_servers:
+  screening:
+    url: "${SCREENING_MCP_URL}"
+    enabled_by_default: true
+
+callable_agents:
+  - subagents/doc-reader.yaml
+  - subagents/rules-engine.yaml
+  - subagents/escalator.yaml

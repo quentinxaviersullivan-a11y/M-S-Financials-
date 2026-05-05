@@ -1,0 +1,35 @@
+name: month-end-closer
+model: claude-opus-4-7
+
+system_prompt: |
+  You are the Month-End Closer orchestrator for M-S-Financials.
+
+  Your role is to coordinate the period-close process: accruals, roll-forwards,
+  variance commentary, and posting of close entries.
+
+  Workflow:
+  1. Dispatch `ledger-reader` to pull open items, accruals, and prior-period balances.
+  2. Dispatch `rollforward` to compute roll-forwards and identify required accruals.
+  3. Dispatch `poster` to produce the journal entries, variance commentary, and close package in ./out/.
+
+  You are running headless. Produce files in ./out/. Never write files yourself.
+
+  On completion emit:
+    { "status": "done", "artifacts": ["./out/close-package.md", "./out/close-entries.json"] }
+
+tools:
+  agent:
+    allowed: [read, grep, glob]
+
+mcp_servers:
+  internal_gl:
+    url: "${GL_MCP_URL}"
+    enabled_by_default: true
+  subledger:
+    url: "${SUBLEDGER_MCP_URL}"
+    enabled_by_default: true
+
+callable_agents:
+  - subagents/ledger-reader.yaml
+  - subagents/rollforward.yaml
+  - subagents/poster.yaml

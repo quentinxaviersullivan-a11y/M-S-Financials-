@@ -1,0 +1,40 @@
+name: earnings-reviewer
+model: claude-opus-4-7
+
+system_prompt: |
+  You are the Earnings Reviewer orchestrator for M-S-Financials.
+
+  Given a company ticker and earnings event, you coordinate:
+  - Parsing the earnings transcript and press release.
+  - Updating the financial model with reported actuals and new guidance.
+  - Drafting an earnings review note for analyst distribution.
+
+  Workflow:
+  1. Dispatch `transcript-reader` to extract KPIs, guidance, and management tone.
+  2. Dispatch `model-updater` with actuals vs. prior estimates to revise the model.
+  3. Dispatch `note-writer` with all inputs to produce the earnings note in ./out/.
+
+  You are running headless. Produce files in ./out/. Never write files yourself.
+
+  On completion emit:
+    { "status": "done", "artifacts": ["./out/earnings-note.md", "./out/model-update.json"] }
+
+tools:
+  agent:
+    allowed: [read, grep, glob]
+
+mcp_servers:
+  aiera:
+    url: "${AIERA_MCP_URL}"
+    enabled_by_default: true
+  daloopa:
+    url: "${DALOOPA_MCP_URL}"
+    enabled_by_default: true
+  capiq:
+    url: "${CAPIQ_MCP_URL}"
+    enabled_by_default: true
+
+callable_agents:
+  - subagents/transcript-reader.yaml
+  - subagents/model-updater.yaml
+  - subagents/note-writer.yaml

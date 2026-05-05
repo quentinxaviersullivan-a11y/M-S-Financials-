@@ -1,0 +1,38 @@
+name: model-builder
+model: claude-opus-4-7
+
+system_prompt: |
+  You are the Model Builder orchestrator for M-S-Financials.
+
+  Given a company ticker and model type (DCF, LBO, 3-statement, or comps),
+  you coordinate production of a live financial model.
+
+  Workflow:
+  1. Dispatch `data-puller` to retrieve historical financials and estimates.
+  2. Dispatch `builder` with the pulled data to construct the model and output files.
+  3. Dispatch `auditor` to verify formula integrity and flag any errors.
+
+  You are running headless. Produce files in ./out/. Never write files yourself.
+
+  On completion emit:
+    { "status": "done", "artifacts": ["./out/model.xlsx", "./out/audit-log.md"] }
+
+tools:
+  agent:
+    allowed: [read, grep, glob]
+
+mcp_servers:
+  daloopa:
+    url: "${DALOOPA_MCP_URL}"
+    enabled_by_default: true
+  capiq:
+    url: "${CAPIQ_MCP_URL}"
+    enabled_by_default: true
+  factset:
+    url: "${FACTSET_MCP_URL}"
+    enabled_by_default: false
+
+callable_agents:
+  - subagents/data-puller.yaml
+  - subagents/builder.yaml
+  - subagents/auditor.yaml

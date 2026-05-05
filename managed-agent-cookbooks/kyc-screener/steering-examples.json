@@ -1,0 +1,18 @@
+[
+  {
+    "event": "Screen onboarding: client_id C-20250501, document_path ./docs/onboarding-C20250501.pdf, jurisdiction US",
+    "description": "Standard US retail client onboarding"
+  },
+  {
+    "event": "Screen onboarding: client_id C-20250502, document_path ./docs/onboarding-C20250502.pdf, jurisdiction UK, client_type PEP",
+    "description": "UK politically exposed person — enhanced due diligence"
+  },
+  {
+    "event": "Screen onboarding: client_id C-20250503, document_path ./docs/onboarding-C20250503.pdf, jurisdiction US, client_type institutional",
+    "description": "Institutional client onboarding with entity screening"
+  },
+  {
+    "event": "Re-screen existing client: client_id C-20240101, trigger: annual_refresh, jurisdiction US",
+    "description": "Annual KYC refresh for existing client"
+  }
+]

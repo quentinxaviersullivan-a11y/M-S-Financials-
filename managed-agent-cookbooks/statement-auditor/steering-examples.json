@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Audit LP statements: fund MSFI-Fund-III, period Q1-2025, statement_path ./statements/fund-iii-q1-2025/",
+    "description": "Quarterly LP statement audit for Fund III"
+  },
+  {
+    "event": "Audit LP statements: fund MSFI-Fund-II, period FY-2024, statement_path ./statements/fund-ii-fy2024/, audit_type annual",
+    "description": "Annual LP statement audit"
+  },
+  {
+    "event": "Audit LP statements: fund MSFI-Fund-III, period Q4-2024, statement_path ./statements/fund-iii-q4-2024/, lp_id LP-0042",
+    "description": "Single LP statement audit"
+  }
+]

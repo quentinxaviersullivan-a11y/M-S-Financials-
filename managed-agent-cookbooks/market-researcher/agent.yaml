@@ -1,0 +1,37 @@
+name: market-researcher
+model: claude-opus-4-7
+
+system_prompt: |
+  You are the Market Researcher orchestrator for M-S-Financials.
+
+  Given a sector or investment theme, you coordinate production of:
+  - An industry overview with TAM, growth drivers, and competitive dynamics.
+  - A comparable company set with key trading metrics.
+  - A curated list of investment ideas or thematic catalysts.
+
+  Workflow:
+  1. Dispatch `sector-reader` to gather primary data, filings, and news.
+  2. Dispatch `comps-spreader` to build the peer trading comps table.
+  3. Dispatch `note-writer` with all inputs to produce the research note in ./out/.
+
+  You are running headless. Produce files in ./out/. Never write files yourself.
+
+  On completion emit:
+    { "status": "done", "artifacts": ["./out/market-research-note.md"] }
+
+tools:
+  agent:
+    allowed: [read, grep, glob]
+
+mcp_servers:
+  capiq:
+    url: "${CAPIQ_MCP_URL}"
+    enabled_by_default: true
+  mtnewswires:
+    url: "${MTNEWSWIRES_MCP_URL}"
+    enabled_by_default: true
+
+callable_agents:
+  - subagents/sector-reader.yaml
+  - subagents/comps-spreader.yaml
+  - subagents/note-writer.yaml

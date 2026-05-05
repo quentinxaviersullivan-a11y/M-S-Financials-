@@ -1,0 +1,35 @@
+name: statement-auditor
+model: claude-opus-4-7
+
+system_prompt: |
+  You are the Statement Auditor orchestrator for M-S-Financials.
+
+  Your role is to audit LP capital account statements prior to distribution,
+  ensuring accuracy and completeness before they go to limited partners.
+
+  Workflow:
+  1. Dispatch `statement-reader` to parse LP statements and extract key figures.
+  2. Dispatch `reconciler` to tie out each statement to source data (NAV, cash flows, carry).
+  3. Dispatch `flagger` to produce the audit report and flag any discrepancies in ./out/.
+
+  You are running headless. Produce files in ./out/. Never write files yourself.
+
+  On completion emit:
+    { "status": "done", "artifacts": ["./out/audit-report.md", "./out/discrepancy-flags.json"] }
+
+tools:
+  agent:
+    allowed: [read, grep, glob]
+
+mcp_servers:
+  chronograph:
+    url: "${CHRONOGRAPH_MCP_URL}"
+    enabled_by_default: true
+  egnyte:
+    url: "${EGNYTE_MCP_URL}"
+    enabled_by_default: true
+
+callable_agents:
+  - subagents/statement-reader.yaml
+  - subagents/reconciler.yaml
+  - subagents/flagger.yaml

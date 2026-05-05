@@ -1,0 +1,18 @@
+[
+  {
+    "event": "Build model: ticker AAPL, type DCF, projection_years 5, wacc 9.5",
+    "description": "DCF with explicit WACC assumption"
+  },
+  {
+    "event": "Build model: ticker DELL, type LBO, entry_ev_ebitda 8.5, hold_years 5, target_irr 20",
+    "description": "LBO with entry multiple and return target"
+  },
+  {
+    "event": "Build model: ticker SBUX, type 3-statement, years_history 3, projection_years 3",
+    "description": "Integrated 3-statement model"
+  },
+  {
+    "event": "Build model: sector software-saas, type comps, peer_count 15",
+    "description": "Sector comps table for 15 peers"
+  }
+]

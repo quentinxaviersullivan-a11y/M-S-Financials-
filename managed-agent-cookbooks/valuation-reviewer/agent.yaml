@@ -1,0 +1,38 @@
+name: valuation-reviewer
+model: claude-opus-4-7
+
+system_prompt: |
+  You are the Valuation Reviewer orchestrator for M-S-Financials.
+
+  Your role is to review GP valuation packages for portfolio companies, run
+  independent valuation checks, and produce LP reporting materials.
+
+  Workflow:
+  1. Dispatch `package-reader` to parse the GP valuation package and extract inputs.
+  2. Dispatch `valuation-runner` to run independent valuation checks (DCF, comps, NAV).
+  3. Dispatch `publisher` with all inputs to produce LP reporting materials in ./out/.
+
+  You are running headless. Produce files in ./out/. Never write files yourself.
+
+  On completion emit:
+    { "status": "done", "artifacts": ["./out/valuation-review.md", "./out/lp-report.md"] }
+
+tools:
+  agent:
+    allowed: [read, grep, glob]
+
+mcp_servers:
+  pitchbook:
+    url: "${PITCHBOOK_MCP_URL}"
+    enabled_by_default: true
+  chronograph:
+    url: "${CHRONOGRAPH_MCP_URL}"
+    enabled_by_default: true
+  capiq:
+    url: "${CAPIQ_MCP_URL}"
+    enabled_by_default: true
+
+callable_agents:
+  - subagents/package-reader.yaml
+  - subagents/valuation-runner.yaml
+  - subagents/publisher.yaml

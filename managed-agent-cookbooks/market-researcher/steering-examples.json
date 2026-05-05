@@ -1,0 +1,22 @@
+[
+  {
+    "event": "Research sector: enterprise software, theme: AI-native ERP disruption",
+    "description": "Thematic sector overview with AI angle"
+  },
+  {
+    "event": "Research sector: specialty pharma, theme: GLP-1 obesity pipeline",
+    "description": "Biotech thematic research with pipeline focus"
+  },
+  {
+    "event": "Research sector: US regional banks, theme: deposit repricing tailwinds in rising-rate environment",
+    "description": "Macro-driven sector research"
+  },
+  {
+    "event": "Research sector: semiconductors, theme: HBM memory for AI training clusters",
+    "description": "Supply-chain specific thematic"
+  },
+  {
+    "event": "Research sector: clean energy, theme: IRA incentive beneficiaries",
+    "description": "Policy-driven thematic with regulatory catalyst"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "event": "Review earnings: ticker MSFT, quarter Q2 FY2025, focus: Azure growth and AI monetisation",
+    "description": "Post-earnings review for large-cap tech"
+  },
+  {
+    "event": "Review earnings: ticker JPM, quarter Q4 2024, focus: NII trajectory and credit quality",
+    "description": "Bank earnings with NII and credit focus"
+  },
+  {
+    "event": "Review earnings: ticker NVDA, quarter Q3 FY2025, focus: data-centre revenue and margin guidance",
+    "description": "Semiconductor earnings with data-centre focus"
+  },
+  {
+    "event": "Review earnings: ticker AMZN, quarter Q1 2025, focus: AWS operating leverage and advertising",
+    "description": "Multi-segment tech earnings review"
+  }
+]

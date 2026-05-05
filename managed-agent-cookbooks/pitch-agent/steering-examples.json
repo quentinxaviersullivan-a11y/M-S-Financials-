@@ -1,0 +1,22 @@
+[
+  {
+    "event": "Build pitch book: target CRWD, acquirer PANW, thesis: platform consolidation in security",
+    "description": "Single-target pitch with stated thesis"
+  },
+  {
+    "event": "Build pitch book: target SNOW, situation: exploring strategic alternatives",
+    "description": "Sell-side pitch, no named acquirer"
+  },
+  {
+    "event": "Refresh comps and football field only for target CRWD",
+    "description": "Follow-up steering event after MD feedback"
+  },
+  {
+    "event": "Build pitch book: target MSFT, acquirer GOOGL, thesis: cloud AI infrastructure consolidation",
+    "description": "Large-cap strategic acquisition pitch"
+  },
+  {
+    "event": "Build sell-side pitch: target PLTR, situation: PE take-private exploration",
+    "description": "Take-private scenario with PE buyer universe"
+  }
+]
